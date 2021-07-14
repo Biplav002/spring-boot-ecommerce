@@ -22,4 +22,10 @@ System.out.println(menus);
 
         //return purchaseResponse;
     }
+    @GetMapping("")
+    public String list() {
+
+        return "this.menuUpdatedService.listAllUser()";
+    }
+
 }
