@@ -21,4 +21,5 @@ public class MenuUpdatedServiceImpl implements MenuUpdatedService{
         this.weeklyMenuRepository.saveAll(updMenu);
         System.out.println("hjhjhj");
     }
+
 }

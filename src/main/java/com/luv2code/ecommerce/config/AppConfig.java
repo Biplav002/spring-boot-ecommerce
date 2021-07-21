@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "app")
 public class AppConfig {
+    public void setAppUrl(String appUrl) {
+        this.appUrl = appUrl;
+    }
+
     @NotNull
     private String appUrl;
 
