@@ -5,7 +5,7 @@ import com.luv2code.ecommerce.service.MenuUpdatedService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("https://peaceful-mountain-91250.herokuapp.com/")
+@CrossOrigin("https://peaceful-mountain-91250.herokuapp.com")
 @RestController
 @RequestMapping("/api/update")
 
