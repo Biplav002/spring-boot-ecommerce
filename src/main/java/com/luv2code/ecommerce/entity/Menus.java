@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name="weekly_menu")
 @Data
-public class Menus {
+public class Menus{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
