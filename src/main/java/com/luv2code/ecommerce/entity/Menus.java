@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name="weekly_menu")
 @Data
-public class Menu {
+public class Menus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,11 +28,14 @@ public class Menu {
     private BigDecimal price;
 
     @Column(name = "image_url")
-    private String imageUrl;
+    private String img;
     @Column(name = "quantity")
     private int unitsInStock;
 
     @Column(name = "date_created")
     @CreationTimestamp
     private Date dateCreated;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private ImageModel Imagemodel;
 }

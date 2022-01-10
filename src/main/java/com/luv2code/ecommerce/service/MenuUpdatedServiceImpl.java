@@ -1,10 +1,10 @@
 package com.luv2code.ecommerce.service;
 
 import com.luv2code.ecommerce.dao.WeeklyMenuRepository;
-import com.luv2code.ecommerce.entity.Menu;
+
+import com.luv2code.ecommerce.entity.Menus;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,10 +16,23 @@ public class MenuUpdatedServiceImpl implements MenuUpdatedService{
        this.weeklyMenuRepository= weeklyMenuRepository;
     }
     @Override
-    public void updateMenu(Menu []updateMenu) {
-        List<Menu> updMenu=Arrays.asList(updateMenu);
+    public void updateMenu(Menus []updateMenu) {
+        List<Menus> updMenu=Arrays.asList(updateMenu);
         this.weeklyMenuRepository.saveAll(updMenu);
         System.out.println("hjhjhj");
     }
 
+    @Override
+    public List<Menus> getMenu() {
+      return this.weeklyMenuRepository.findAll();
+      //return  listMenu.toArray(new Menu[0]);
+    }
+
+
+
+   @Override
+    public Menus getMenuById(long id) {
+        return this.weeklyMenuRepository.getById(id);
+        //return  listMenu.toArray(new Menu[0]);
+    }
 }
