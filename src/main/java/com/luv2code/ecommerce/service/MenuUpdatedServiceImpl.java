@@ -16,9 +16,9 @@ public class MenuUpdatedServiceImpl implements MenuUpdatedService{
        this.weeklyMenuRepository= weeklyMenuRepository;
     }
     @Override
-    public void updateMenu(Menus []updateMenu) {
-        List<Menus> updMenu=Arrays.asList(updateMenu);
-        this.weeklyMenuRepository.saveAll(updMenu);
+    public void updateMenu(Menus updateMenu) {
+       // List<Menus> updMenu=Arrays.asList(updateMenu);
+        this.weeklyMenuRepository.save(updateMenu);
         System.out.println("hjhjhj");
     }
 

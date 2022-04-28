@@ -25,7 +25,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins="http://radiant-meadow-93594.herokuapp.com/")
+@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping("/auth")
 public class AuthController {
     @Autowired

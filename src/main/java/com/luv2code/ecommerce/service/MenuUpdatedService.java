@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 public interface MenuUpdatedService {
-    public void updateMenu(Menus[] menu);
+    public void updateMenu(Menus menu);
     public List<Menus> getMenu();
     Menus getMenuById(long id);
 }

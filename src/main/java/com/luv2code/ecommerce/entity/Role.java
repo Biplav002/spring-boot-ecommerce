@@ -1,13 +1,7 @@
 package com.luv2code.ecommerce.entity;
 
-import javax.persistence.Column;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="role")
@@ -18,6 +12,14 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @Column(name="name")
     private Roles roleName;
+
+    public Set<RazorPayUser> getUsers() {
+        return users;
+    }
+
+    // bi-directional many-to-many association to User
+    @ManyToMany(mappedBy = "roles")
+    private Set<RazorPayUser> users;
     public Integer getId() {
         return id;
     }
@@ -26,6 +28,10 @@ public class Role {
     }
     public Roles getRoleName() {
         return roleName;
+    }
+
+    public String getName() {
+        return roleName.name();
     }
     public void setRoleName(Roles roleName) {
         this.roleName = roleName;

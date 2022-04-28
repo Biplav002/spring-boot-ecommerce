@@ -19,20 +19,23 @@ import static com.luv2code.ecommerce.controller.ImageUploadController.compressBy
 
 @CrossOrigin("http://localhost:4200")
 @RestController
-@RequestMapping("/api")
+
 
 public class UpdateMenuController {
     private MenuUpdatedService menuUpdatedService;
     UpdateMenuController(MenuUpdatedService menuUpdatedService){
         this.menuUpdatedService=menuUpdatedService;
     }
-    @PostMapping("/update/menu")
-    public void placeOrder(@RequestBody Menus[] menus) {
+    @PutMapping("/api/update/menu")
+    public void placeOrder(@RequestBody Menus menu) {
+
+      //string table=menu.getDay();
+
        /* ImageModel img = new ImageModel(menus.getOriginalFilename(), file.getContentType(),
                 compressBytes(file.getBytes()));*/
-        this.menuUpdatedService.updateMenu(menus);
+        this.menuUpdatedService.updateMenu(menu);
        // PurchaseResponse purchaseResponse = checkoutService.placeOrder(purchase);
-System.out.println(menus);
+//System.out.println(menus);
 
         //return purchaseResponse; @GetMapping("/tutorials/{id}")
     }
@@ -42,14 +45,25 @@ System.out.println(menus);
         return this.menuUpdatedService.getMenu();
     }
     @GetMapping("/menu/search/findById")
-    public Menus[] getMenuById(@RequestParam("id") long id) {
+    public Menus getMenuById(@RequestParam("id") long id) {
 
        //
         Menus m =this.menuUpdatedService.getMenuById(id);
-        ImageModel img = new ImageModel(getId(m.getImagemodel().getName()),m.getImagemodel().getName(), m.getImagemodel().getType(),
+        /*ImageModel img = new ImageModel(getId(m.getImagemodel().getName()),m.getImagemodel().getName(), m.getImagemodel().getType(),
                 decompressBytes(m.getImagemodel().getPicByte()));
-        m.setImagemodel(img);
-        return new Menus[]{m};
+        m.setImagemodel(img);*/
+        return  m;
+    }
+
+    @GetMapping("/api/menu/search/findById")
+    public Menus getaMenuById(@RequestParam("id") long id) {
+
+        //
+        Menus m =this.menuUpdatedService.getMenuById(id);
+        /*ImageModel img = new ImageModel(getId(m.getImagemodel().getName()),m.getImagemodel().getName(), m.getImagemodel().getType(),
+                decompressBytes(m.getImagemodel().getPicByte()));
+        m.setImagemodel(img);*/
+        return  m;
     }
     public static byte[] decompressBytes(byte[] data) {
         Inflater inflater = new Inflater();

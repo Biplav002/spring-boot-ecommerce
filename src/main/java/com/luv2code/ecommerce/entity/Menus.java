@@ -12,7 +12,6 @@ import java.util.Date;
 @Data
 public class Menus{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name = "day")
