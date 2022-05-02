@@ -43,6 +43,7 @@ public class AuthController {
     public ResponseEntity<?> userLogin(@Valid @RequestBody User user) {
         System.out.println("AuthController -- userLogin");
         System.out.println("AuthController -- userLogin"+user.getPassword()+user.getUserName());
+        System.out.println("AuthController hh"+authenticationManager.toString());
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword()));
 
