@@ -6,7 +6,7 @@ import com.luv2code.ecommerce.service.CheckoutService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins="https://nourriture-app.herokuapp.com")
 @RequestMapping("/api/checkout")
 public class CheckoutController {
 

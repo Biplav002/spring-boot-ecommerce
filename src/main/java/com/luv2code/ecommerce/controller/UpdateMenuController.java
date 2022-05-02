@@ -1,6 +1,7 @@
 package com.luv2code.ecommerce.controller;
 
 
+import com.luv2code.ecommerce.config.AppConfig;
 import com.luv2code.ecommerce.entity.ImageModel;
 import com.luv2code.ecommerce.entity.Menus;
 import com.luv2code.ecommerce.service.MenuUpdatedService;
@@ -17,11 +18,13 @@ import java.util.zip.Inflater;
 import static com.luv2code.ecommerce.controller.ImageUploadController.compressBytes;
 //https://peaceful-mountain-91250.herokuapp.com/
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://nourriture-app.herokuapp.com")
 @RestController
 
 
 public class UpdateMenuController {
+
+    private AppConfig appConfig;
     private MenuUpdatedService menuUpdatedService;
     UpdateMenuController(MenuUpdatedService menuUpdatedService){
         this.menuUpdatedService=menuUpdatedService;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://nourriture-app.herokuapp.com")
 public interface WeeklyMenuRepository extends JpaRepository<Menus,Long> {
     @Query("select w.day,w.description,w.price ,i.picByte from Menus w left join ImageModel i on  w.day = i.name")
     Page<Menus> findById(@RequestParam("id") Long id, Pageable pageable);

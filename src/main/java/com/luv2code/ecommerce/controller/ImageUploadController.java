@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://nourriture-app.herokuapp.com")
 @RequestMapping(path = "image")
 public class ImageUploadController {
     @Autowired
@@ -39,7 +39,7 @@ public class ImageUploadController {
         imageRepository.save(image) ;
         return ResponseEntity.status(HttpStatus.OK);
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://nourriture-app.herokuapp.com")
     @GetMapping(path = { "/get/{imageName}" })
     public ImageModel getImage(@PathVariable("imageName") String imageName) throws IOException {
         final Optional<ImageModel> retrievedImage = imageRepository.findByName(imageName);
